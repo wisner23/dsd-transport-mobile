@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Lista Transportes</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()" color="primary">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-icon name="transport"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let transport of transports">
+      <ion-item (click)="openModal({id: transport.id})">
+          <h2>{{transport.name}}</h2>
+      </ion-item>
+      <ion-item-options>
+          <button ion-button color="danger" (click)="remove(transport)">
+            <ion-icon name="trash"></ion-icon> Remover
+          </button>
+          <button ion-button color="warning" (click)="linhas(transport)">
+              <ion-icon name="bus"></ion-icon> Linhas
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
